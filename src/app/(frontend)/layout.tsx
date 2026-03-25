@@ -16,7 +16,7 @@ export default async function RootLayout(props: { children: React.ReactNode }) {
     const { children } = props
 
     return (
-        <html lang="en" suppressHydrationWarning className={inter.variable}>
+        <html lang="en" suppressHydrationWarning className={inter.variable} data-yd-content-ready="true">
           <body className="font-sans antialiased text-neutral-900 bg-white dark:bg-neutral-950 dark:text-neutral-100 min-h-screen flex flex-col selection:bg-indigo-500/30">
             <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
               <Header />

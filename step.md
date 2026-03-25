@@ -85,3 +85,9 @@ npm install tailwindcss @tailwindcss/postcss postcss
 ```bash
 npm install next-themes
 ```
+
+## now we need to install cloudinary for media upload, we can install it from (https://cloudinary.com/documentation/upload_widget_reference#upload_widget_quick_start):
+## run:
+```bash
+npm install cloudinary
+```

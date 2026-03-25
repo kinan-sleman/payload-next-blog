@@ -10,6 +10,9 @@ import { Media } from './collections/Media/config'
 import { Articles } from './collections/Articles/config'
 import { env } from '@/env'
 import { ArticleAuthors } from '@/collections/ArticleAuthors/config'
+import { cloudStoragePlugin } from '@payloadcms/plugin-cloud-storage'
+import { cloudinaryAdapter } from '@/adapters/cloudinary.adapter'
+import { cloudinary } from '@/lib/cloudinary'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -22,17 +25,14 @@ export default buildConfig({
         },
         autoLogin: {
             email: env.CMS_SEED_ADMIN_EMAIL,
-            password: env.CMS_SEED_ADMIN_PASSWORD
-        }
+            password: env.CMS_SEED_ADMIN_PASSWORD,
+        },
     },
     // every new collection we need to add it here, after that run (npm run generate:types) to generate TypeScript for it
     collections: [Users, Media, Articles, ArticleAuthors],
     // by this we can enhance editor more by adding toolbar
     editor: lexicalEditor({
-        features: ({defaultFeatures}) => [
-            ...defaultFeatures,
-            FixedToolbarFeature(),
-        ]
+        features: ({ defaultFeatures }) => [...defaultFeatures, FixedToolbarFeature()],
     }),
     secret: process.env.PAYLOAD_SECRET || '',
     typescript: {
@@ -44,5 +44,20 @@ export default buildConfig({
         },
     }),
     sharp,
-    plugins: [],
+    plugins: [
+        cloudStoragePlugin({
+            collections: {
+                media: {
+                    adapter: cloudinaryAdapter,
+
+                    disableLocalStorage: true, // Prevent Payload from saving files to disk
+
+                    generateFileURL: ({ filename }) => {
+                        const path = filename.startsWith('media/') ? filename : `media/${filename}`
+                        return cloudinary.url(path, { secure: true })
+                    },
+                },
+            },
+        }),
+    ],
 })

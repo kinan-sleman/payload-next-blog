@@ -20,11 +20,13 @@
     "dependencies": {
         "@payloadcms/db-postgres": "3.80.0",
         "@payloadcms/next": "3.80.0",
+        "@payloadcms/plugin-cloud-storage": "^3.80.0",
         "@payloadcms/richtext-lexical": "3.80.0",
         "@payloadcms/ui": "3.80.0",
         "@plaiceholder/next": "^3.0.0",
         "@t3-oss/env-nextjs": "^0.13.11",
         "@tailwindcss/postcss": "^4.2.2",
+        "cloudinary": "^2.9.0",
         "cross-env": "^7.0.3",
         "dotenv": "16.4.7",
         "graphql": "^16.8.1",

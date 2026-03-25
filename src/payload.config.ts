@@ -7,9 +7,9 @@ import sharp from 'sharp'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media/config'
-import { Articles } from './collections/Articles'
+import { Articles } from './collections/Articles/config'
 import { env } from '@/env'
-import { ArticleAuthors } from '@/collections/ArticleAuthors'
+import { ArticleAuthors } from '@/collections/ArticleAuthors/config'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)

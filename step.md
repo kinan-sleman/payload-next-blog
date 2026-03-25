@@ -68,3 +68,8 @@ import { env } from '@/env'
 npm install @plaiceholder/next
 ```
 ## and edit on next.config.ts for complete installation
+## we need faker package to create fake data, we can install it from (https://fakerjs.dev/guide/) by:
+## run:
+```bash
+npm install @faker-js/faker --save-dev
+```

@@ -1,13 +1,11 @@
 import { getPayload } from "payload";
-import config from "@/payload.config"
 import { isDuplicateError } from "@/scripts/seed/lib/is-duplicate-error";
 import { env } from "@/env";
-export async function seedAdmin () {
-    // this config comming from here: src\payload.config.ts
-    const payload = await getPayload({config})
+
+export async function seedAdmin (payload: Awaited<ReturnType<typeof getPayload>>) {
     try {
         const response = await payload.create({
-            collection: "users", // this comming from here: src\collections\Users.ts
+            collection: "users",
             data: {
                 email: env.CMS_SEED_ADMIN_EMAIL,
                 password: env.CMS_SEED_ADMIN_PASSWORD

@@ -61,3 +61,10 @@ import { env } from '@/env'
 ```
 
 ## now auto login is working fine after update payload.config.ts
+
+## we need plaiceholder package for generate-blur-data-url helper function, we can add it from (https://plaiceholder.co/docs/plugins/next)
+## run:
+```bash
+npm install @plaiceholder/next
+```
+## and edit on next.config.ts for complete installation

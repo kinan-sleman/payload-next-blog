@@ -79,3 +79,9 @@ npm install @faker-js/faker --save-dev
 ```bash
 npm install tailwindcss @tailwindcss/postcss postcss
 ```
+
+## install next-themes from (https://www.npmjs.com/package/next-theme):
+## run:
+```bash
+npm install next-themes
+```

@@ -6,7 +6,6 @@ import { ARTICLE_AUTHOR_ROLE_OPTIONS } from "@/collections/ArticleAuthors/consta
 
 export async function seedArticleAuthors(payload: Awaited<ReturnType<typeof getPayload>>) {
     try {
-        
         const imageUrl = faker.image.personPortrait({size: 256})
         const avatar = await createMediaFromImageUrl(payload, imageUrl)
         if(!avatar) {

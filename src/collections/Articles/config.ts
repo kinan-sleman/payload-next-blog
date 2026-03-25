@@ -1,3 +1,4 @@
+import { ARTICLE_STATUS_OPTIONS } from "@/collections/Articles/constants";
 import { generateContentSummaryHook } from "@/collections/Articles/hooks/generate-content.hook";
 import { generateSlugHook } from "@/collections/Articles/hooks/generate-slug.hook";
 import { convertLexicalToPlaintext } from "@payloadcms/richtext-lexical/plaintext";
@@ -33,10 +34,10 @@ export const Articles: CollectionConfig = {
             ]
         } },
         { name: 'coverImage', type: 'upload', relationTo: 'media', required: true },
-        { name: 'author', type: 'relationship', relationTo: 'article-authors', required: true },
-        { name: 'status', type: 'select', options: ['Draft', 'Published'], defaultValue: 'Draft' },
+        { name: 'author', type: 'relationship', relationTo: 'article-authors', required: true, },
+        { name: 'status', type: 'select', options: Object.values(ARTICLE_STATUS_OPTIONS), defaultValue: ARTICLE_STATUS_OPTIONS.DRAFT },
         { name: 'published_at', type: 'date', required: true, admin: {
-            condition: (data) => data?.status === 'Published',
+            condition: (data) => data?.status === ARTICLE_STATUS_OPTIONS.PUBLISHED,
             date: {
                 pickerAppearance: 'dayAndTime'
             }

@@ -1,5 +1,5 @@
 import { postgresAdapter } from '@payloadcms/db-postgres'
-import { lexicalEditor } from '@payloadcms/richtext-lexical'
+import { FixedToolbarFeature, lexicalEditor } from '@payloadcms/richtext-lexical'
 import path from 'path'
 import { buildConfig } from 'payload'
 import { fileURLToPath } from 'url'
@@ -7,7 +7,9 @@ import sharp from 'sharp'
 
 import { Users } from './collections/Users'
 import { Media } from './collections/Media'
+import { Articles } from './collections/Articles'
 import { env } from '@/env'
+import { ArticleAuthors } from '@/collections/ArticleAuthors'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -23,8 +25,15 @@ export default buildConfig({
             password: env.CMS_SEED_ADMIN_PASSWORD
         }
     },
-    collections: [Users, Media],
-    editor: lexicalEditor(),
+    // every new collection we need to add it here, after that run (npm run generate:types) to generate TypeScript for it
+    collections: [Users, Media, Articles, ArticleAuthors],
+    // by this we can enhance editor more by adding toolbar
+    editor: lexicalEditor({
+        features: ({defaultFeatures}) => [
+            ...defaultFeatures,
+            FixedToolbarFeature(),
+        ]
+    }),
     secret: process.env.PAYLOAD_SECRET || '',
     typescript: {
         outputFile: path.resolve(dirname, 'payload-types.ts'),

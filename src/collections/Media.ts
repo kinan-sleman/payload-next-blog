@@ -11,6 +11,20 @@ export const Media: CollectionConfig = {
             type: 'text',
             required: true,
         },
+        {
+            name: 'blurDataUrl',
+            type: 'text',
+            admin: {
+                hidden: true,
+            }
+        },
     ],
     upload: true,
+    hooks: {
+        beforeChange: [
+            ({operation, data, req}) => {
+                if(operation !== "create") return data
+            }
+        ]
+    }
 }

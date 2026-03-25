@@ -73,3 +73,9 @@ npm install @plaiceholder/next
 ```bash
 npm install @faker-js/faker --save-dev
 ```
+
+## now I need to build the frontend, first I'll install TailwindCSS for Next.js from (https://tailwindcss.com/docs/installation/framework-guides/nextjs):
+## run:
+```bash
+npm install tailwindcss @tailwindcss/postcss postcss
+```

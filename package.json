@@ -15,7 +15,8 @@
         "payload": "cross-env NODE_OPTIONS=--no-deprecation payload",
         "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
         "seed": "tsx -r dotenv/config src/scripts/seed/script.ts",
-        "reset": "cross-env NODE_OPTIONS=--no-deprecation psql -U postgres -d payload-next-blog -c \"DROP SCHEMA public CASCADE; CREATE SCHEMA public;\" && payload migrate:fresh && npm run seed"    },
+        "reset": "cross-env NODE_OPTIONS=--no-deprecation psql -U postgres -d payload-next-blog -c \"DROP SCHEMA public CASCADE; CREATE SCHEMA public;\" && payload migrate:fresh && npm run seed"
+    },
     "dependencies": {
         "@payloadcms/db-postgres": "3.80.0",
         "@payloadcms/next": "3.80.0",
@@ -23,15 +24,18 @@
         "@payloadcms/ui": "3.80.0",
         "@plaiceholder/next": "^3.0.0",
         "@t3-oss/env-nextjs": "^0.13.11",
+        "@tailwindcss/postcss": "^4.2.2",
         "cross-env": "^7.0.3",
         "dotenv": "16.4.7",
         "graphql": "^16.8.1",
         "next": "16.2.1",
         "payload": "3.80.0",
         "plaiceholder": "^3.0.0",
+        "postcss": "^8.5.8",
         "react": "19.2.4",
         "react-dom": "19.2.4",
         "sharp": "^0.34.2",
+        "tailwindcss": "^4.2.2",
         "zod": "^4.3.6"
     },
     "devDependencies": {

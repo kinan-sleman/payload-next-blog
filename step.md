@@ -92,7 +92,12 @@ npm install next-themes
 npm install cloudinary
 ```
 
-## this step to export database from PgAdmin :
+## this step to export database from PgAdmin : (for sql file)
 ```bash
 pg_dump -U postgres -d payload-next-blog > backup.sql
+```
+
+## this step to import database from PgAdmin : (for backup file)
+```bash
+pg_dump -U postgres -Fc -d payload-next-blog > project_backup.backup
 ```

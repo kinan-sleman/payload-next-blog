@@ -10,6 +10,7 @@ export const Articles: CollectionConfig = {
     slug: 'articles', // It's the unique id for this collection (because when we fetching | creating | updating data we can make it by this slug)
     admin: {
         useAsTitle: 'title',
+        group: 'Articles & Authors',
     },
     fields: [
         { name: 'title', type: 'text', required: true, unique: true },

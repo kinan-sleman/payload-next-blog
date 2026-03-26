@@ -1,0 +1,149 @@
+@import "./icons.scss";
+/* Standard Payload Theme Colors Overrides */
+
+[data-theme='light'] {
+  --theme-bg: #f9fafb; /* Lighter background */
+  --theme-elevation-50: #ffffff; /* White cards */
+  --theme-elevation-100: #e2e8f0; /* Soft borders */
+  
+  /* Vibrant indigo primary color for buttons and active states */
+  --theme-success-200: #c7d2fe;
+  --theme-success-400: #818cf8;
+  --theme-success-500: #6366f1; /* Main primary */
+  --theme-success-550: #4f46e5;
+
+  --theme-text: #0f172a;
+}
+
+[data-theme='dark'] {
+  --theme-bg: #020617; /* Very dark background */
+  --theme-elevation-50: #0f172a; /* Slate 900 for cards */
+  --theme-elevation-100: #1e293b; /* Slate 800 */
+  --theme-elevation-150: #334155;
+  
+  /* Vibrant indigo primary color for dark mode */
+  --theme-success-200: #e0e7ff;
+  --theme-success-400: #6366f1;
+  --theme-success-500: #4f46e5; /* Main primary */
+  --theme-success-550: #4338ca;
+  
+  --theme-text: #f8fafc;
+}
+
+/* === Customizing the Sidebar (Nav) === */
+
+.nav {
+  /* Soft background and elegant shadow */
+  background-color: var(--theme-elevation-50);
+  border-right: 1px solid var(--theme-elevation-100);
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.02);
+  transition: all 0.3s ease;
+}
+
+[data-theme='dark'] .nav {
+  box-shadow: 4px 0 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhancing the Nav Groups (Headers in sidebar) */
+.nav-group__label {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--theme-success-400);
+  font-weight: 700;
+  margin-top: 1rem;
+  display: flex !important;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Adds icons safely via CSS masking to perfectly inherit text color */
+
+/* Sidebar Links */
+.nav__link {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  border-radius: 8px;
+  padding-left: 12px;
+  position: relative;
+  overflow: hidden;
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+
+  &:hover {
+    background-color: var(--theme-elevation-100);
+    transform: translateX(4px);
+  }
+}
+
+.nav__link::before {
+  content: '';
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  background-color: currentColor;
+  opacity: 0.8;
+}
+
+.nav__link:hover::before, .nav__link.active::before {
+  opacity: 1;
+}
+
+/* Active Nav Links styling built perfectly on Payload */
+.nav__link.active {
+  background-color: var(--theme-elevation-100);
+  color: var(--theme-success-500);
+  font-weight: 600;
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 18px;
+    background-color: var(--theme-success-500);
+    border-radius: 0 4px 4px 0;
+  }
+}
+
+/* General Layout Adjustments */
+.template-default__wrap {
+  background-color: var(--theme-bg);
+}
+
+/* Card adjustments with modern border-radius */
+.card {
+  border-radius: 12px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+  border: 1px solid var(--theme-elevation-100);
+}
+
+/* Buttons style */
+.btn--style-primary {
+  background-image: linear-gradient(135deg, var(--theme-success-400), var(--theme-success-500));
+  border: none;
+  box-shadow: 0 2px 8px rgba(99, 102, 241, 0.2);
+  border-radius: 8px;
+  
+  &:hover {
+    filter: brightness(1.1);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  }
+}
+
+/* Logo Layout specifically for Payload Dashboard Header */
+.admin-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+}

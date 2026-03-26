@@ -23,6 +23,17 @@ export default buildConfig({
         importMap: {
             baseDir: path.resolve(dirname),
         },
+        components: {
+            graphics: {
+                Logo: '/components/AdminLogo#AdminLogo',
+                Icon: '/components/AdminIcon#AdminIcon',
+            },
+            views: {
+                dashboard: { 
+                    Component: '/components/CustomDashboard',
+                },
+            },
+        },
         // autoLogin: {
         //     email: env.CMS_SEED_ADMIN_EMAIL,
         //     password: env.CMS_SEED_ADMIN_PASSWORD,

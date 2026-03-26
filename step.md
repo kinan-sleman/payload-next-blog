@@ -101,3 +101,9 @@ pg_dump -U postgres -d payload-next-blog > backup.sql
 ```bash
 pg_dump -U postgres -Fc -d payload-next-blog > project_backup.backup
 ```
+## when we need to edit any style, add logo, add any import for logo, we need to run this command: 
+## run:
+```bash
+npm run generate:importmap
+```
+## by this command, new updates will be added to this file: src\app\(payload)\admin\importMap.js

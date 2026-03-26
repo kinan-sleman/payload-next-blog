@@ -1,3 +1,8 @@
+### add first steps for create payload app:
+```bash
+npm create-payload-app
+```
+
 ### payload is more need to prettier because it is not formatting the code properly
 
 ### I make sure that tabWidth is 4 in .prettierrc.json:

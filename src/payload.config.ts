@@ -23,10 +23,10 @@ export default buildConfig({
         importMap: {
             baseDir: path.resolve(dirname),
         },
-        autoLogin: {
-            email: env.CMS_SEED_ADMIN_EMAIL,
-            password: env.CMS_SEED_ADMIN_PASSWORD,
-        },
+        // autoLogin: {
+        //     email: env.CMS_SEED_ADMIN_EMAIL,
+        //     password: env.CMS_SEED_ADMIN_PASSWORD,
+        // },
     },
     // every new collection we need to add it here, after that run (npm run generate:types) to generate TypeScript for it
     collections: [Users, Media, Articles, ArticleAuthors],
